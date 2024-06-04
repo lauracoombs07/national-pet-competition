@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
 })
 
 
-// TODO: Changes to the Kennel Size dropdown box
+// TODO: Changes to the Kennel Size dropdown box DONE
 //    There is an input element that gathers the weight of the pet. Then it displays the size of the kennel in the adjacent text box.
 //    - Define a variable for size
 //      - Use an if/else if statement or a case statement to set the value of the size
@@ -49,7 +49,7 @@ function handleWeightUpdate() {
 }
 
 
-// TODO: Changes to the Days of Boarding text box
+// TODO: Changes to the Days of Boarding text box DONE
 //    - There is an input element that gathers the number of days for boarding. Then it displays the cost of the boarding in the adjacent text box.
 //    - Gather the value of the days' input element
 //    - If the value of days is NaN
@@ -64,6 +64,7 @@ function handleWeightUpdate() {
 function handleDaysUpdate() {
   var days = document.getElementById("days").value;
   var boardingFee;
+  // I'd rather set the value to 0.00 at the beginning rather than wait til a user clicks. Hope that's okay
   if (days === "" || isNaN(days)) {
     days = 0;
     boardingFee = 0.00;
@@ -79,7 +80,7 @@ function handleDaysUpdate() {
 
 
 
-// TODO: Add a Function that Updates the Total Costs
+// TODO: Add a Function that Updates the Total Costs DONE
 //    - At the bottom of the page is a section that displays the total costs including boarding, registration, and total. Write a function that updates these values when called.
 //        - Define a variable for registration cost with an initial value of zero
 //        - Define a variable for the number of events with an initial value of zero
@@ -112,6 +113,7 @@ function updateTotalCost() {
   var registrationCost = 0;
   var numEvents = 0;
   var boardingCost = document.getElementById("boardingFee").value === "" ? 0 : parseFloat(document.getElementById("boardingFee").value);
+  // has to be if statements, not else ifs, because more than one can be checked
   if (document.getElementById("sing").checked) {
     numEvents++;
   }
@@ -126,14 +128,14 @@ function updateTotalCost() {
   registrationCost = 120 * numEvents;
   var total = boardingCost + registrationCost;
 
-  // update values
+  // update values in HTML
   document.getElementById("boardingCost").value = boardingCost.toFixed(2);
   document.getElementById("registrationCost").value = registrationCost.toFixed(2);
   document.getElementById("totalCost").value = total.toFixed(2);
 
 }
 
-// TODO: Add Event Handlers for the Checkboxes
+// TODO: Add Event Handlers for the Checkboxes DONE
 //  - There are three checkboxes. Each is followed by a div containing a fieldset, labels, and input elements. T
 //    his div is to only be shown when the associated checkbox is checked.
 // I'm assuming more than one checkbox can be checked at a time. -- instruction video says yes
@@ -172,7 +174,7 @@ function handleCheckboxChange() {
 
 
 // I added a single handle function for all these checkboxes and put initial call in the window load event so inital state is loaded
-// TODO: Add an event handler to the sing checkbox
+// TODO: Add an event handler to the sing checkbox DONE
 //    - Have it respond to the change event
 //    - If the checkbox is checked
 //      - set the display to block X
@@ -180,6 +182,6 @@ function handleCheckboxChange() {
 //      - set the display to none X
 //    - add a call to the update total cost function
 //    - test it to make sure the totals update as expected X
-// TODO: Add another event listener like the one above for the cute checkbox.
+// TODO: Add another event listener like the one above for the cute checkbox. DONE
 
-// TODO: Add another event listener like the one above for the trick checkbox.
+// TODO: Add another event listener like the one above for the trick checkbox. DONE
